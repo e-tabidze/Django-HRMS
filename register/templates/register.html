@@ -1,8 +1,8 @@
-{% extends templates/base.html %}
+{% extends 'base.html' %}
 {%  block title %} Create an Account {% endblock %}
 
 {% block content %}
-    <form method = "POst" class = "form-group">
+    <form method = "Post" class = "form-group">
         {{form}}
         <button type = "submit" class="btn btn-success">Register</button>
     </form>
