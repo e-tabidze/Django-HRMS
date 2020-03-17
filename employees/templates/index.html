@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Here you go with all employees of This Company</h1>
+    <h4>Employee || Department || Position || E-mail ||  Personal Number || Employment Position || Date of Employment ||</h4>
+        <ul class="employee-info">
+            {% for employee in employees %}
+            <li>
+                <a href="{% url 'employee' employee_id=employee.id %}">
+                    {{ employee.name }} {{ employee.department }} {{ employee.position }} {{ employee.email }} {{ employee.personal_number}}
+                    {{ employee.employment_position }} {{ employee.date_of_employment }}
+                </a>
+
+            </li>
+
+
+            {% endfor %}
+        </ul>
+
+{% endblock %}
