@@ -1,4 +1,5 @@
 <!doctype html>
+{% load static %}
 <html lang="en">
 
 <head>
@@ -9,15 +10,15 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <link rel = "stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
     <title>Company</title>
-
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <span> Company Name </span>
+    <h2>  <span> Company Name </span>  </h2>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -28,27 +29,10 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/employees">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
+
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onchange=''}>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onchange='' }>
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>
@@ -59,10 +43,10 @@
 <div class="row">
     <div class="col">
         <div class="card" style="width: 18rem;">
-            <img src="{{ employee.image_url }}" class="card-img-top" alt="...">
+            <img src={{employee.image.url}} class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Position: {{employee.position}}</h5>
-                <h5>Department: {{employee.department}}</h5>
+                <h5 class="test-component">Department: {{employee.department}}</h5>
                 <h5>Salary: {{employee.salary}}</h5>
             </div>
         </div>
