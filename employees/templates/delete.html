@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<p> Are you sure you want to delete this {{employee.name}} ? </p>
+<form action="{% url 'delete' employee_id=employee.id %}" method="POST" >
+
+    {% csrf_token %}
+
+
+    <a href="{% url 'delete' employee_id=employee.id %}"> Cancel </a>
+    <input type="submit" name="Confirm">
+
+</form>
+{% endblock %}
+employee_id

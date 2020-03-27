@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<form method="POST" enctype="multipart/form-data" class = "form-group form-group-center">
+    {% csrf_token %}
+    {{form|crispy}}
+    <button type = "submit" class="btn btn-success"> Add New Employee </button>
+</form>
+
+{% for employee in employees %}
+    <a href="{% url 'employee' employee_id=employee.id %}">
+{% endfor %}
+{% endblock %}
+
+

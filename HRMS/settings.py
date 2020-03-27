@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'employees.apps.EmployeesConfig',
-    'register.apps.RegisterConfig'
+    'register.apps.RegisterConfig',
+    'django_filters',
 
 ]
 
@@ -144,9 +145,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 CRISPY_TEMPLATES = 'bootstrap4'
 LOGIN_REDIRECT_URL = '/employees/'
+LOGOUT_REDIRECT_URL = '/login/'
+REGISTER_REDIRECT_URL = '/login/'
 MEDIA_URL = '/images/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 STATICFILES_DIRS = [
+    '/Projects/HRModule/HRMS/django/static',
     os.path.join(BASE_DIR, 'static')
 ]
+

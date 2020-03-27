@@ -1,38 +1,78 @@
 {% extends 'base.html' %}
+{% load static %}
+
 
 {% block content %}
 
     <h1>Here you go with all employees of This Company</h1>
-            <th>Employee</th>
-            <th>Department</th>
-            <th>Position</th>
-            <th>E-mail</th>
-            <th>Personal Number</th>
-            <th>Employment Position</th>
-            <th>Date of Employment</th>
-        </tr>
-        <ul class="employee-info">
-        {% for employee in employees %}
-        <li>
-            <a href="{% url 'employee' employee_id=employee.id %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <style>
+        .content-table {
+            border-collapse: collapse;
+            margin: 26px 0;
+            font-size: 0.9em;
+            min-width: 500px;a
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 15);
+        }
 
-            </a>
+        .content-table thead tr {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold
+        }
 
-        </li>
+        .content-table th,
+        .content-table td {
+            padding: 12px 25px;
+        }
 
-    <table>
-        <tr>
-            <td>{{ employee.name }}</td>
-            <td>{{ employee.department }}</td>
-            <td>{{ employee.position }}</td>
-            <td>{{ employee.email }}</td>
-            <td>{{ employee.personal_number }}</td>
-            <td>{{ employee.employment_position }}</td>
-            <td>{{ employee.date_of_employment }}</td>
-        </tr>
-    </table>
+        .content-table tbody tr {
+            border-bottom: 2px solid #dddddd;
+        }
 
+        .content-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        .content-table tbody tr:last-of-type {
+            border-bottom: 4px solid #009879;
+        }
+
+    </style>
+
+    <body>
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th>Employee</th>
+                    <th>Department</th>
+                    <th>Position</th>
+                    <th>E-mail</th>
+                    <th>Personal Number</th>
+                    <th>Employment Position</th>
+                    <th>Date of Employment</th>
+                </tr>
+            </thead>
+
+            {% for employee in employees %}
+            <tbody>
+                <tr>
+                    <td> <a href="{% url 'employee' employee_id=employee.id %}"> {{ employee.name }} </td>
+                    <td>{{ employee.department }}</td>
+                    <td>{{ employee.position }}</td>
+                    <td>{{ employee.email }}</td>
+                    <td>{{ employee.personal_number }}</td>
+                    <td>{{ employee.employment_position }}</td>
+                    <td>{{ employee.date_of_employment }} </a> </td>
+                </tr>
+            </tbody>
             {% endfor %}
-        </ul>
+         </table>
+
+    </body>
+
 
 {% endblock %}
